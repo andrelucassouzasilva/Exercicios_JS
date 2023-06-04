@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2><a href="./index.html">Home</a></h2>
+    <form onsubmit="onSubmit(event)">
+      <input type="number" id="userNumber" />
+      <button type="submit">GO!</button>
+    </form>
+  </body>
+
+  <script>
+    const number = document.querySelector("#userNumber");
+
+    function onSubmit(e) {
+      e.preventDefault();
+
+      let num = parseInt(number.value);
+      let numbers = [];
+      while (num !== 0) {
+        if (num % 2 === 0) {
+          console.log(num);
+          numbers = [...numbers, num];
+        }
+
+        num > 0 ? num-- : num++;
+      }
+
+      const numbersSum = numbers.reduce((acc, current) => (acc += current));
+      sum.textContent = numbersSum.toString();
+    }
+  </script>
+</body>
+</html>
